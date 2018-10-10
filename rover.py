@@ -22,7 +22,8 @@ def move_both_for_seconds(percent, seconds):
     MoveTank(OUTPUT_A, OUTPUT_D).on_for_seconds(SpeedPercent(percent),
                                                 SpeedPercent(percent),
                                                 seconds,
-                                                brake=False)
+                                                brake=False,
+                                                block=True)
 
 def move_both(percent):
     MoveTank(OUTPUT_A, OUTPUT_D).on(SpeedPercent(percent),
@@ -30,11 +31,13 @@ def move_both(percent):
 
 def turn_left(percent, seconds):
     LargeMotor(OUTPUT_D).on_for_seconds(SpeedPercent(percent),
-                                        seconds, brake=False)
+                                        seconds, brake=False,
+                                        block=True)
 
 def turn_right(percent, seconds):
     LargeMotor(OUTPUT_A).on_for_seconds(SpeedPercent(percent),
-                                        seconds, brake=False)
+                                        seconds, brake=False,
+                                        block=True)
 
 def detect_line():
     return cs.color == 1
