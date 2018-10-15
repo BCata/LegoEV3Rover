@@ -1,0 +1,7 @@
+An infinite while loop runs on the EV3Rover and moves it further, unless one of the three detectable obstacles are encountered:
+	- a black line on the floor, detected by the color sensor
+	- a low height, heavy object detected by the pressure sensor
+	- the presence of a greater height object, detected by the proximity sensor.
+If any of these obstacles are encountered, a collision protocol is triggered - LEDs on the Lego brick are lit red, the Rover drives back and turns for a short while (0.6 seconds), then LEDs lit green again and teh Rover continues its usual track.
+
+We noticed that the color sensor detects the black line quite late (near the outer edge of the line). We tried to solve this issue through software (like moving the Rover forwards for a shorter period of time, such that the color sensor reads input for frequent), but since this approach didn't provide any noticeable improvement, we supposed this lag is coming form the sensor as hardware.
